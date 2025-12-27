@@ -9,6 +9,7 @@ import pandas as pd
 from openpyxl.styles import PatternFill, Alignment
 from openpyxl import Workbook
 from io import BytesIO
+import os
 
 # إعداد السجل - مستوى DEBUG لتتبع المشكلات
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.DEBUG)
@@ -844,7 +845,7 @@ def wrap_command_handler(handler):
 if __name__ == "__main__":
     API_TOKEN = os.getenv("BOT_TOKEN")
     if not API_TOKEN:
-        raise RuntimeError("BOT_TOKEN not found. Add it in Railway Variables.")
+        raise RuntimeError("BOT_TOKEN not found. Add it in Fly secrets.")
     
     application = ApplicationBuilder().token(API_TOKEN).build()
 
